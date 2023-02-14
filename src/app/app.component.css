@@ -1,0 +1,11 @@
+.container {
+  width: 40vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #e9edc9;
+  /* box-shadow: 10px 10px 15px 15px #dee0de; */
+  margin: 50px auto;
+  padding: 10px 15px;
+}
