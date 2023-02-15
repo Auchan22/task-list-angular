@@ -1,0 +1,45 @@
+.task-container {
+  width: 30vw;
+  min-height: 70px;
+  background: #edf6f9;
+  border-radius: 0.25em;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  padding: 10px;
+}
+
+.task-container .info,
+.task-container .actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.25em;
+}
+
+.task-container div button {
+  border: none;
+  width: 20px;
+  background-color: transparent;
+}
+
+.task-container div button:hover {
+  cursor: pointer;
+}
+
+.info {
+  align-items: flex-start;
+}
+
+.actions {
+  align-items: flex-end;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 420px) {
+  .task-container {
+    width: 70vw;
+  }
+}
