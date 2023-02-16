@@ -9,6 +9,15 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskComponent } from './components/task/task.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormComponent } from './components/form/form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -17,8 +26,20 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AddTaskBtnComponent,
     TaskListComponent,
     TaskComponent,
+    FormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
