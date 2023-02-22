@@ -9,50 +9,9 @@ import { Task } from 'src/types/Task';
 })
 export class TaskListComponent {
   borderColor: string = '5px solid yellow';
-  tasks: Task[] = [
-    {
-      id: 1,
-      title: 'Titulo 1',
-      date: 'Hoy',
-      reminder: false,
-    },
-    {
-      id: 2,
-      title: 'Titulo 2',
-      date: 'Mañana',
-      reminder: true,
-    },
-    {
-      id: 3,
-      title: 'Titulo 3',
-      date: 'En un mes',
-      reminder: false,
-    },
-    {
-      id: 2,
-      title: 'Titulo 2',
-      date: 'Mañana',
-      reminder: true,
-    },
-    {
-      id: 3,
-      title: 'Titulo 3',
-      date: 'En un mes',
-      reminder: false,
-    },
-    {
-      id: 2,
-      title: 'Titulo 2',
-      date: 'Mañana',
-      reminder: true,
-    },
-    {
-      id: 3,
-      title: 'Titulo 3',
-      date: 'En un mes',
-      reminder: false,
-    },
-  ];
+  tasks: Task[] = [];
 
-  constructor(private localStorageSVC: LocalStorageService) {}
+  constructor(private localStorageSVC: LocalStorageService) {
+    this.tasks = localStorageSVC.getTasks();
+  }
 }

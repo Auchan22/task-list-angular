@@ -17,7 +17,5 @@ export class TaskComponent {
   faXColor: string = 'red';
   faBellColor: string = 'gray';
 
-  constructor() {
-    console.log(this.data);
-  }
+  constructor() {}
 }
