@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
 import { Task } from 'src/types/Task';
 
 @Component({
@@ -52,4 +53,6 @@ export class TaskListComponent {
       reminder: false,
     },
   ];
+
+  constructor(private localStorageSVC: LocalStorageService) {}
 }
