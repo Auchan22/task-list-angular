@@ -55,6 +55,17 @@ export class LocalStorageService {
     }
   }
 
+  getTaskById(id: number): Task | undefined {
+    try {
+      const arr = this.getTasks();
+      const task = arr.find((t: Task) => t.id === id);
+      if (!task) throw new Error('No se encontro la tarea con el id: ${id}');
+      return task;
+    } catch (error) {
+      console.log('Error: ', error);
+    }
+  }
+
   getTasks(): any {
     try {
       const tasks = localStorage.getItem(KEY);

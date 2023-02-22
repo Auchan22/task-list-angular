@@ -54,6 +54,6 @@ export class TaskComponent implements OnInit {
   }
 
   goToDetailPage(id: number) {
-    this.router.navigate(['hero/1']);
+    this.router.navigate(['task/', this.data.id]);
   }
 }
