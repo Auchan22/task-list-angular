@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TaskDetailComponent } from './components/task-detail/task-detail.compon
     TaskComponent,
     FormComponent,
     TaskDetailComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,
