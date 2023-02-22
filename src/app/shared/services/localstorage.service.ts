@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, find } from 'rxjs';
 import { Task } from 'src/types/Task';
 
 const KEY: string = 'taskList';
@@ -36,11 +36,30 @@ export class LocalStorageService {
     }
   }
 
+  changeReminder(id: number): void {
+    try {
+      const currentsTasks = this.getTasks();
+      const findTask = currentsTasks?.find((t: Task) => t.id === id);
+      findTask.reminder = !findTask.reminder;
+
+      let newArr = currentsTasks.map((t: Task) =>
+        t.id === findTask.id ? findTask : t
+      );
+
+      // console.log(newArr);
+
+      localStorage.setItem(KEY, JSON.stringify(newArr));
+      this.tasksSubject.next(newArr);
+    } catch (error) {
+      console.log('Error: ', error);
+    }
+  }
+
   getTasks(): any {
     try {
       const tasks = localStorage.getItem(KEY);
       const currentStorage = tasks !== null ? JSON.parse(tasks) : [];
-      this.tasksSubject.next(currentStorage);
+      // this.tasksSubject.next(currentStorage);
       return currentStorage as Task[];
     } catch (error) {
       console.log('Error: ', error);

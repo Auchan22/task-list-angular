@@ -4,8 +4,10 @@
     <p>{{ data.date }}</p>
   </div>
   <div class="actions">
-    <button><fa-icon [icon]="faX" [style.color]="faXColor"></fa-icon></button>
-    <button>
+    <button (click)="handleDelete(data.id)">
+      <fa-icon [icon]="faX" [style.color]="faXColor"></fa-icon>
+    </button>
+    <button (click)="handleReminder(data.id)">
       <fa-icon [icon]="faBell" [style.color]="faBellColor"></fa-icon>
     </button>
   </div>

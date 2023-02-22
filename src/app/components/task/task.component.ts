@@ -1,21 +1,53 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from 'src/types/Task';
 
 import { faX, faBell } from '@fortawesome/free-solid-svg-icons';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css'],
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
   @Input() data!: Task;
 
   faX = faX;
   faBell = faBell;
 
   faXColor: string = 'red';
-  faBellColor: string = 'gray';
+  faBellColor!: string;
 
-  constructor() {}
+  constructor(
+    private LocalStorageSVC: LocalStorageService,
+    public _snackBar: MatSnackBar
+  ) {}
+
+  ngOnInit(): void {
+    this.faBellColor = this.data.reminder ? 'black' : 'gray';
+  }
+
+  handleDelete(id: number) {
+    try {
+      this.LocalStorageSVC.deleteTask(id);
+      // alert('Tarea eliminada');
+      this._snackBar.open('Tarea Eliminada', 'X', {
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        duration: 3000,
+      });
+    } catch (error) {
+      console.log('Error', error);
+    }
+  }
+
+  handleReminder(id: number) {
+    try {
+      this.LocalStorageSVC.changeReminder(id);
+      this.faBellColor = this.data.reminder ? 'black' : 'gray';
+    } catch (error) {
+      console.log('Error', error);
+    }
+  }
 }
