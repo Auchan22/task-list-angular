@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from '../form/form.component';
 
 @Component({
@@ -12,13 +8,11 @@ import { FormComponent } from '../form/form.component';
   styleUrls: ['./add-task-btn.component.css'],
 })
 export class AddTaskBtnComponent {
+  @Output() addTask = new EventEmitter<void>();
+
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
+  openDialog() {
     const dialogRef = this.dialog.open(FormComponent);
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('Dialog cerrado');
-    });
   }
 }

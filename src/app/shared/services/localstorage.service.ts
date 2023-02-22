@@ -15,7 +15,7 @@ export class LocalStorageService {
     this.initialStorage();
   }
 
-  private createTask(task: Task): void {
+  createTask(task: Task): void {
     try {
       const currentsTask = this.getTasks();
       localStorage.setItem(KEY, JSON.stringify([...currentsTask!, task]));
@@ -25,10 +25,10 @@ export class LocalStorageService {
     }
   }
 
-  private deleteTask(id: number): void {
+  deleteTask(id: number): void {
     try {
       const currentsTask = this.getTasks();
-      const filteredArr = currentsTask?.filter((t) => t.id !== id);
+      const filteredArr = currentsTask?.filter((t: Task) => t.id !== id);
       localStorage.setItem(KEY, JSON.stringify([...filteredArr!]));
       this.tasksSubject.next([...filteredArr!]);
     } catch (error) {
@@ -36,16 +36,7 @@ export class LocalStorageService {
     }
   }
 
-  createOrDeleteTask(task: Task): void {
-    const { id } = task;
-
-    const currentTasks = this.getTasks();
-    const foundTask = !!currentTasks?.find((t: Task) => t.id === id);
-
-    foundTask ? this.deleteTask(id) : this.createTask(task);
-  }
-
-  getTasks(): Task[] | undefined {
+  getTasks(): any {
     try {
       const tasks = localStorage.getItem(KEY);
       const currentStorage = tasks !== null ? JSON.parse(tasks) : [];

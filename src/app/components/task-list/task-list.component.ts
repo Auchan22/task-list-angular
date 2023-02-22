@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
+import { Component, Input } from '@angular/core';
 import { Task } from 'src/types/Task';
 
 @Component({
@@ -9,9 +8,7 @@ import { Task } from 'src/types/Task';
 })
 export class TaskListComponent {
   borderColor: string = '5px solid yellow';
-  tasks: Task[] = [];
+  @Input() Tasks: Task[] = [];
 
-  constructor(private localStorageSVC: LocalStorageService) {
-    this.tasks = localStorageSVC.getTasks();
-  }
+  constructor() {}
 }
