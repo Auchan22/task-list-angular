@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
 import { Task } from 'src/types/Task';
 
 @Component({
@@ -6,9 +7,16 @@ import { Task } from 'src/types/Task';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
 })
-export class TaskListComponent {
+export class TaskListComponent implements OnInit {
   borderColor: string = '5px solid yellow';
-  @Input() Tasks: Task[] = [];
+  Tasks: Task[] = [];
 
-  constructor() {}
+  constructor(private LocalStorageSVC: LocalStorageService) {}
+
+  ngOnInit(): void {
+    this.LocalStorageSVC.tasks$.subscribe(() => {
+      this.Tasks = this.LocalStorageSVC.getTasks();
+    });
+    // this.LocalStorageSVC.clearStorage();
+  }
 }

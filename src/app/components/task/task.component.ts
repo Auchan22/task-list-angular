@@ -4,6 +4,7 @@ import { Task } from 'src/types/Task';
 import { faX, faBell } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -21,7 +22,8 @@ export class TaskComponent implements OnInit {
 
   constructor(
     private LocalStorageSVC: LocalStorageService,
-    public _snackBar: MatSnackBar
+    public _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -49,5 +51,9 @@ export class TaskComponent implements OnInit {
     } catch (error) {
       console.log('Error', error);
     }
+  }
+
+  goToDetailPage(id: number) {
+    this.router.navigate(['hero/1']);
   }
 }

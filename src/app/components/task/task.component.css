@@ -30,6 +30,10 @@
   align-items: flex-start;
 }
 
+.info:hover {
+  cursor: pointer;
+}
+
 .actions {
   align-items: flex-end;
 }
@@ -41,5 +45,9 @@ h3 {
 @media screen and (max-width: 420px) {
   .task-container {
     width: 70vw;
+  }
+
+  .info:hover {
+    cursor: auto;
   }
 }

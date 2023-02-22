@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Task } from 'src/types/Task';
 import { LocalStorageService } from './shared/services/localstorage.service';
 @Component({
@@ -6,16 +6,9 @@ import { LocalStorageService } from './shared/services/localstorage.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'task-list';
   tasks: Task[] = [];
 
   constructor(private LocalStorageSVC: LocalStorageService) {}
-
-  ngOnInit(): void {
-    this.LocalStorageSVC.tasks$.subscribe(() => {
-      this.tasks = this.LocalStorageSVC.getTasks();
-    });
-    // this.LocalStorageSVC.clearStorage();
-  }
 }
