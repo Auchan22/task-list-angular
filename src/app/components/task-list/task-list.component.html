@@ -1,3 +1,4 @@
 <div>
+  <app-empty-list *ngIf="Tasks.length == 0"></app-empty-list>
   <app-task *ngFor="let t of Tasks" [data]="t"></app-task>
 </div>
