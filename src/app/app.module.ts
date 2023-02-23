@@ -21,6 +21,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { EmptyListComponent } from './components/empty-list/empty-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     FormComponent,
     TaskDetailComponent,
     BackButtonComponent,
+    FooterComponent,
+    EmptyListComponent,
   ],
   imports: [
     BrowserModule,
