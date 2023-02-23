@@ -1,1 +1,7 @@
-<p>task-detail works!</p>
+<div class="container-detail">
+  <h2>{{ data?.title }}</h2>
+  <p *ngIf="data?.reminder">{{ data?.date }}</p>
+  <div>
+    <p class="task-description">{{ data?.description }}</p>
+  </div>
+</div>

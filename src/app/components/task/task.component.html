@@ -1,7 +1,7 @@
 <div class="task-container">
   <div class="info" (click)="goToDetailPage(data.id)">
     <h3>{{ data.title }}</h3>
-    <p>{{ data.date }}</p>
+    <p *ngIf="data.reminder">{{ data.date }}</p>
   </div>
   <div class="actions">
     <button (click)="handleDelete(data.id)">

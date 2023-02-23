@@ -30,6 +30,10 @@
   align-items: flex-start;
 }
 
+.info > p {
+  font-style: italic;
+}
+
 .info:hover {
   cursor: pointer;
 }
